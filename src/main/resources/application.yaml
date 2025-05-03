@@ -8,20 +8,20 @@ spring:
     console:
       enabled: true
       path: /h2-console
-      
+
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: ${DATABASE_URL:jdbc:h2:mem:testdb}  # Lê a variável de ambiente
     username: sa
-    password: 
+    password: ${DB_PASSWORD:}  # Lê a variável de ambiente, caso configurada
     driverClassName: org.h2.Driver
 
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-       ddl-auto: update
+      ddl-auto: update
 
 server:
-  port: 8081  
+  port: ${SERVER_PORT:8081}  # Lê a variável de ambiente
 
 logging:
   level:
