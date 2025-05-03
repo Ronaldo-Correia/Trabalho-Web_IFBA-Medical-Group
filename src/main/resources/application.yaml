@@ -20,8 +20,6 @@ spring:
     hibernate:
        ddl-auto: update
 
-server:
-  port: 8081
 logging:
   level:
     org.hibernate.engine.jdbc.spi.SqlExceptionHelper: ERROR
