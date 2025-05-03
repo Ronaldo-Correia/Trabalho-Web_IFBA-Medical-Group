@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: #404040;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/imagen.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.login-container {
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+}
+
+
+.form-section {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 60%;
+}
+
+.titulo {
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.barra-horizontal {
+    background-color: blue;
+    height: 5px;
+    width: 210px;
+    margin: 10px auto;
+}
+
+.espaco-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.espaco-input label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.lembrar-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    align-self: center;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #325CC8;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+button:hover {
+
+    background-color: #222d64;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+p {
+    text-align: center;
+}
+
+p a {
+    color: #256a8a;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+
+.image-section {
+    width: 40%;
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo em coluna */
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0 20px 20px 0;
+}
+
+.image-section h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; 
+    font-size: 30px;
+    color: #404040;
+}
+
+.alinharItem {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    padding: 10px; 
+}
+
+
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column-reverse; /* troca a ordem */
+        max-width: 90%;
+    }
+
+    .form-section, .image-section {
+        width: 100%;
+    }
+
+    .image-section img {
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+
+

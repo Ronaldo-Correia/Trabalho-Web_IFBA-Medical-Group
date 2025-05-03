@@ -1,0 +1,317 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    color: #404040;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: url(/img/imagen.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3); /* camada escura */
+    z-index: -1;
+  }
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+   
+.CadastroContainer {
+    display: flex;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 100%;
+    
+}
+
+.fundotela {
+    background-color: #3383c1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Formulario {
+    padding: 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    width: 60%;
+}
+
+.TituloCad {
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+.barra-horizontal {
+    background-color: blue;
+    height: 5px;
+    width: 210px;
+    margin: 10px auto;
+}
+
+.espaco-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.espaco-input label {
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+button {
+    padding: 15px;
+    align-self: center;
+    width: 100%;
+    border-radius: 30px;
+    background-color: #325CC8;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+
+    background-color: #222d64;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+
+.image-section2 {
+    width: 40%;
+    display: flex;
+    flex-direction: column; /* Alinha o conteúdo em coluna */
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.image-section2 img {
+    max-height: 200px;
+    object-fit: contain;
+  }
+  .image-section2 h2 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px; 
+    font-size: 30px;
+    color: #404040;
+}  
+
+
+.alinharItem {
+    position: absolute; /* Para posicionar em relação ao body */
+    top: 0; /* Alinha no topo */
+    left: 0; /* Alinha no lado esquerdo */
+    padding: 10px; /* Opcional: dá um espaço entre o ícone e a borda */
+}
+
+.Container {
+    background-color: white;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+header {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.Container header {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.Container header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: blue;
+}
+.primeiro-formulario {
+    display: flex;
+    flex-direction: column;
+}
+.Container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: white;
+}
+
+.Container form .form{
+    position: absolute;
+    background-color: aliceblue;
+}
+
+.Container form .formularioEnderco{
+    opacity: 0;
+    pointer-events: none;
+}
+.Cadastro .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+.fields {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+
+Container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+    
+}
+
+ .Container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+
+
+}
+.input-field {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 - 10px);
+}
+
+.input-field label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+.input-field input {
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    background-color: #f1f1f1;
+}
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+.Container form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    max-width: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #f1f1f1;
+    border-radius: 5px;
+    margin: 25px 0;
+    background-color: #3383c1;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+form button i{
+    margin: 0 6px;
+}
+
+form .buttons{
+    display: flex;
+    align-items: center;
+
+}
+form .buttons button{
+    margin-right: 14px;
+}
+@media (max-width: 768px) {
+    .CadastroContainer {
+      flex-direction: column;
+      max-width: 90%;
+    }
+  
+    .Formulario,
+    .image-section2 {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .image-section2 {
+      order: -1; /* move imagem para cima em dispositivos móveis */
+    }
+  }
+  
+
+
+
+
