@@ -52,7 +52,12 @@
 			<artifactId>jte-spring-boot-starter-3</artifactId>
 			<version>3.1.16</version>
 		</dependency>
-
+<dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-docker-compose</artifactId>
+      <scope>runtime</scope>
+      <optional>true</optional>
+    </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -103,63 +108,82 @@
 	</dependencies>
 
 	<build>
-		<pluginManagement>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-						<path>
-							<groupId>org.springframework.boot</groupId>
-							<artifactId>spring-boot-configuration-processor</artifactId>
-						</path>
-						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>1.5.5.Final</version>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>gg.jte</groupId>
-				<artifactId>jte-maven-plugin</artifactId>
-				<version>3.1.16</version>
-				<executions>
-					<execution>
-						<id>jte-generate</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>generate</goal>
-						</goals>
-						<configuration>
-							<sourceDirectory>${project.basedir}/src/main/jte</sourceDirectory>
-							<contentType>Html</contentType>
-							<binaryStaticContent>true</binaryStaticContent>
-							<targetResourceDirectory>${project.build.outputDirectory}</targetResourceDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-		</pluginManagement>
-	</build>
+  <plugins>
+    <!-- Plugin do Spring Boot (gera JAR executável com MANIFEST correto) -->
+    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <configuration>
+        <excludes>
+          <exclude>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+          </exclude>
+        </excludes>
+      </configuration>
+    </plugin>
+
+    <!-- Plugin do compilador do Maven com suporte aos annotation processors -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <configuration>
+        <annotationProcessorPaths>
+          <path>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+          </path>
+          <path>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+          </path>
+          <path>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>1.5.5.Final</version>
+          </path>
+        </annotationProcessorPaths>
+      </configuration>
+    </plugin>
+
+    <!-- Plugin do JTE para templates -->
+    <plugin>
+      <groupId>gg.jte</groupId>
+      <artifactId>jte-maven-plugin</artifactId>
+      <version>3.1.16</version>
+      <executions>
+        <execution>
+          <id>jte-generate</id>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>generate</goal>
+          </goals>
+          <configuration>
+            <sourceDirectory>${project.basedir}/src/main/jte</sourceDirectory>
+            <contentType>Html</contentType>
+            <binaryStaticContent>true</binaryStaticContent>
+            <targetResourceDirectory>${project.build.outputDirectory}</targetResourceDirectory>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+
+    <!-- Plugin do JAR para incluir o Main-Class no MANIFEST -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.2.0</version>
+      <configuration>
+        <archive>
+          <manifestEntries>
+            <Main-Class>com.system.clinic.ClinicApplication</Main-Class> <!-- Substitua com a sua classe principal -->
+          </manifestEntries>
+        </archive>
+      </configuration>
+    </plugin>
+
+  </plugins>
+</build>
+
 
 </project>
