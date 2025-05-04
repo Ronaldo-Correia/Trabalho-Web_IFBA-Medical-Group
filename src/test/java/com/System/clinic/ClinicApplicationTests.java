@@ -2,14 +2,12 @@ package com.System.clinic;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-import com.system.clinic.ClinicApplication;
-
-@SpringBootTest(classes=ClinicApplication.class)
+@SpringBootTest
+@ActiveProfiles("test")  // Adicione esta anotação
 class ClinicApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {
+    }
 }

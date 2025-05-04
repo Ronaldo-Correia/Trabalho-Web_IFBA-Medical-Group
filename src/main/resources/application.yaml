@@ -1,33 +1,24 @@
 server:
-  port: ${PORT:8081}  # O Railway injeta a variável PORT
+  port: ${PORT:8081}  # Railway injeta a variável PORT
 
-jte:
-  development-mode: false  # Desative em produção!
-  template-location: src/main/jte
+gg:
+  jte:
+    development-mode: false  # Desative em produção
+    template-location: src/main/jte
 
 spring:
-  h2:
-    console:
-      enabled: false  # Desative o H2 em produção (não seguro)
-      path: /h2-console
-
   datasource:
-    url: ${DATABASE_URL}  # Railway injeta automaticamente
-    username: ${DB_USERNAME}  # Configure no painel do Railway
-    password: ${DB_PASSWORD}  # Configure no painel do Railway
-    driverClassName: ${DB_DRIVER:org.postgresql.Driver}  # Padrão: PostgreSQL
+    url: ${DATABASE_URL}  # Injetado automaticamente pelo Railway
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 
   jpa:
-    properties:
-      hibernate.transaction.jta.platform: org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform
-    database-platform: ${DB_DIALECT:org.hibernate.dialect.PostgreSQLDialect}  # Padrão: PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update  # Cuidado em produção (melhor usar 'validate')
+      ddl-auto: update
 
 logging:
   level:
     org.hibernate.engine.jdbc.spi.SqlExceptionHelper: ERROR
     org.springframework.orm.jpa: DEBUG
-
-spring.jpa.show-sql: true
-spring.jpa.properties.hibernate.format_sql: true
