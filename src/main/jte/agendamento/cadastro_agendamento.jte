@@ -14,7 +14,9 @@
         <form id="formAgendamento" action="/agendamento/salvar" method="POST">
             <div class="agendamento-grid-container">
                 <h2>Cadastro de Agendamento</h2>
-                
+               
+                <input type="hidden" id="pacienteId" name="pacienteId" value="">
+                <input type="hidden" id="profissionalId" name="profissionalId" value=""> 
                 <div class="form-group">
                     <label for="cns">Buscar CNS Paciente:</label>
                     <input type="text" id="cns" name="cns" placeholder="Digite o CNS" onchange="buscarPaciente()" required>
@@ -55,8 +57,6 @@
                     <textarea id="motivo" name="motivoConsulta" rows="3" placeholder="Descreva o motivo da consulta" required></textarea>
                 </div>
 
-                <input type="hidden" id="pacienteId" name="pacienteId" value="">
-                <input type="hidden" id="profissionalId" name="profissionalId" value="">
 
                 <div class="btn-group">
     <input type="button" class="cancel-btn" value="Voltar" onclick="window.location.href='/listarAgendamentos'">

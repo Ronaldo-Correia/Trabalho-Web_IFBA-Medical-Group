@@ -636,6 +636,8 @@ input:focus, select:focus, textarea:focus {
     overflow: hidden;
 }
 
+
+
 /* Imagem do Lado */
 .profissional-form-img {
     flex: 1;
@@ -1235,14 +1237,15 @@ textarea {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px)  {
     .form-group input,
   .form-group textarea,
   .form-group select {
     width: 100%;
   }
     .paciente-grid-container,
-    .profissional-grid-container {
+    .profissional-grid-container,
+    .agendamento-grid-container {
         grid-template-columns: 1fr;
     }
     .agendamento-container {
@@ -1256,15 +1259,14 @@ textarea {
     .cep-box {
         grid-column: span 1;
     }
-    
+    .agendamento-grid-container{
+        display: inline;
+    }
     .btn-group {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
     }
-    .agendamento-grid-container {
-        padding: 20px 10px;
-      }
     .container {
         max-width: 100%;
         width: 100%;
