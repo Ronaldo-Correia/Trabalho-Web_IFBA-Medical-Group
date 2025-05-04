@@ -3,20 +3,24 @@ server:
 
 gg:
   jte:
-    development-mode: false  # Desative em produção
+    development-mode: false
     template-location: src/main/jte
 
 spring:
   datasource:
-    url: ${DATABASE_URL}  # Injetado automaticamente pelo Railway
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:testdb  # Ou jdbc:h2:file:./data/db se quiser persistente
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
+
+  h2:
+    console:
+      enabled: true  # Opcional: ativa console web do H2
 
 logging:
   level:
