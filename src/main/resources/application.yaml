@@ -8,7 +8,7 @@ gg:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb  # Ou jdbc:h2:file:./data/db se quiser persistente
+    url: jdbc:h2:file:./data/db
     driver-class-name: org.h2.Driver
     username: sa
     password: 
@@ -20,7 +20,7 @@ spring:
 
   h2:
     console:
-      enabled: true  # Opcional: ativa console web do H2
+      enabled: false  # Opcional: ativa console web do H2
 
 logging:
   level:
