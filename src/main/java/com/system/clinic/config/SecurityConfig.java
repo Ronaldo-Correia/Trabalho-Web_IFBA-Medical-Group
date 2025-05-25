@@ -41,14 +41,18 @@ public class SecurityConfig {
                                 "/css/**",
                                 "/cadastroPaciente",
                                 "/paciente/salvar",
-                                "/listarProfissional",  // Adicionado
-                                "/cadastroProfissional/**", // Adicionado
+                                "/listarProfissional",
+                                "/cadastroProfissional/**",
                                 "/sucesso/**",
-                                "/salvarProfissional",  // Adicionado
-                                "/editarProfissional/**", // Adicionado
+                                "/salvarProfissional",
+                                "/editarProfissional/**",
                                 "/error",
                                 "/salvar/**",
-                                "/h2-console/**"
+                                "/h2-console/**",
+                                "/esqueci-senha",
+                                "/solicitar-redefinicao",
+                                "/redefinir-senha"
+
                         ).permitAll()
                         .anyRequest().authenticated())
                 .formLogin(login -> login

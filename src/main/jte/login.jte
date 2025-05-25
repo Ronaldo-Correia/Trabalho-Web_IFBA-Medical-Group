@@ -36,6 +36,7 @@
             <div class="lembrar-me">
                 <input type="checkbox" id="lembrar-me" name="lembrar-me"/>
                 <label for="lembrar-me">Lembrar-me</label>
+                <a href="/esqueci-senha" style=" text-align: right; display: block;">Esqueci minha senha</a>
             </div>
         
             <button>Entrar</button>
