@@ -9,7 +9,7 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 * Spring Boot
 * JTE (Java Template Engine)
 * HTML/CSS
-* Banco de dados H2
+* Banco de dados H2/PostgreSQL
 
 📝 Funcionalidades
 
