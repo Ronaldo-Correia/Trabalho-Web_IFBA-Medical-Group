@@ -18,9 +18,9 @@ spring:
         debug: true  
   
   datasource:
-    url: jdbc:postgresql://c3v5n5ajfopshl.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dsu8kd6t0ssp8
-    username: u9eng25jdnb5k4
-    password: p97b9ef25a5b7f88fd862fb8a9108603055d02a75b3341c5dce8ec584289948a7
+    url: ${JDBC_DATABASE_URL:${DATABASE_URL}}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
