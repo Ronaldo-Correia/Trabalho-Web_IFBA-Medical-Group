@@ -38,6 +38,10 @@ spring:
 
 server:
   port: 8081
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-binding-errors: always
 
 logging:
   level:
@@ -49,5 +53,5 @@ spring.jpa.properties.hibernate.format_sql: true
 
 gg:
   jte:
-    developmentMode: true
-    templateLocation: src/main/resources/jte
+    developmentMode: false
+    templateLocation: jte
