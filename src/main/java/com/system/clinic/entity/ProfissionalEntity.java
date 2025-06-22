@@ -38,10 +38,6 @@ public class ProfissionalEntity {
     @Column(length = 15)
     private String telefone;
 
-    // @NotBlank
-    // @Column(name = "senha", nullable = false)
-    // private String senha;
-
     @Column(name = "cns", length = 15)
     private String cns;
 

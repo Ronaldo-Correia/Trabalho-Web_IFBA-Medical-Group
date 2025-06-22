@@ -8,43 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinir Senha</title>
     <link rel="stylesheet" href="/css/cadastro.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                const button = form.querySelector('button[type="submit"]');
-                button.disabled = true;
-                button.textContent = 'Enviando...';
-                
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-                    
-                    if (response.redirected) {
-                        window.location.href = response.url;
-                    } else {
-                        const result = await response.json();
-                        if (result.error) {
-                            alert(result.error);
-                        }
-                        button.disabled = false;
-                        button.textContent = 'Enviar Link de Redefinição';
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    button.disabled = false;
-                    button.textContent = 'Enviar Link de Redefinição';
-                }
-            });
-        });
-    </script>
+    
 </head>
 <body>
     <div class="CadastroContainer">
@@ -81,5 +45,41 @@
             </div>
         </div>
     </div>
-</body>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const button = form.querySelector('button[type="submit"]');
+                button.disabled = true;
+                button.textContent = 'Enviando...';
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else {
+                        const result = await response.json();
+                        if (result.error) {
+                            alert(result.error);
+                        }
+                        button.disabled = false;
+                        button.textContent = 'Enviar Link de Redefinição';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    button.disabled = false;
+                    button.textContent = 'Enviar Link de Redefinição';
+                }
+            });
+        });
+    </script></body>
 </html>

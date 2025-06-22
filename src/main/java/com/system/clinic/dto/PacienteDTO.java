@@ -1,9 +1,11 @@
 package com.system.clinic.dto;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -26,8 +28,17 @@ public class PacienteDTO {
     @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "Formato de CPF inválido")
     private String cpf;
 
+    @NotBlank(message = "E-mail é obrigatório")
     @Email(message = "E-mail inválido")
     private String email;
+
+      public String getDataNascimentoFormatada() {
+        if (dataNascimento != null) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            return dataNascimento.format(formatter);
+        }
+        return null;
+    }
 
     @NotBlank(message = "CNS é obrigatório")
     private String cns;

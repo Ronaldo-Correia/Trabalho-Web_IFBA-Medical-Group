@@ -167,7 +167,7 @@
                 <goal>generate</goal>
             </goals>
             <configuration>
-                <sourceDirectory>${project.basedir}/src/main/jte</sourceDirectory>
+                <sourceDirectory>${project.basedir}/src/main/resources/jte</sourceDirectory>
                 <targetDirectory>${project.build.directory}/generated-sources/jte</targetDirectory>
                 <contentType>Html</contentType>
                 <packageName>com.system.clinic.views</packageName>
@@ -180,7 +180,7 @@
                 <goal>precompile</goal>
             </goals>
             <configuration>
-                <sourceDirectory>${project.basedir}/src/main/jte</sourceDirectory>
+                <sourceDirectory>${project.basedir}/src/main/resources/jte</sourceDirectory>
                 <targetDirectory>${project.build.directory}/classes</targetDirectory>
                 <contentType>Html</contentType>
                 <packageName>com.system.clinic.views</packageName>
