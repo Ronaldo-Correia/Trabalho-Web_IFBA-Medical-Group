@@ -4,6 +4,8 @@ spring:
     port: 587
     username: redefinirsenhasystem6@gmail.com
     password: fcvh fwwg bdcd uzms
+    protocol: smtp
+    test-connection: true
     properties:
       mail:
         smtp:
@@ -13,20 +15,22 @@ spring:
           connectiontimeout: 5000
           timeout: 5000
           writetimeout: 5000
-
+        debug: true  
+  
   datasource:
-    url: ${JDBC_DATABASE_URL:${DATABASE_URL}}
-    username: ${JDBC_DATABASE_USERNAME}
-    password: ${JDBC_DATABASE_PASSWORD}
+    url: jdbc:postgresql://ec2-54-85-169-59.compute-1.amazonaws.com:5432/d2ecfd4emc36r5?sslmode=require
+    username: ub446tlqv3veu2
+    password: pbd62f590a866764d8e90d92ea92ec70940d3d3503694a08f52f7f40cd7c1355a
     driver-class-name: org.postgresql.Driver
 
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  
     hibernate:
-      ddl-auto: update
+      ddl-auto: update  
     show-sql: true
     properties:
       hibernate:
-        default_schema: public
+        default_schema: public  
         format_sql: true
         jdbc:
           lob:
@@ -36,10 +40,18 @@ server:
   port: ${PORT:8080}
   error:
     include-message: always
+    include-stacktrace: always
     include-binding-errors: always
 
 logging:
   level:
-    org.hibernate: INFO
-    org.springframework: INFO
-    com.yourpackage: DEBUG
+    org.hibernate.engine.jdbc.spi.SqlExceptionHelper: ERROR
+    org.springframework.orm.jpa: DEBUG
+
+spring.jpa.show-sql: true
+spring.jpa.properties.hibernate.format_sql: true
+
+gg:
+  jte:
+    usePrecompiledTemplates: true
+    templateLocation: src/main/resources/jte
