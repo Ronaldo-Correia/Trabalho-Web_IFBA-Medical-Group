@@ -38,10 +38,6 @@ spring:
 
 server:
   port: ${PORT:8080}
-  error:
-    include-message: always
-    include-stacktrace: always
-    include-binding-errors: always
 
 logging:
   level:

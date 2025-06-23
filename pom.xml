@@ -56,7 +56,7 @@
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte-spring-boot-starter-3</artifactId>
-            <version>${jte.version}</version>
+            <version>3.1.16</version>
         </dependency>
 
         <!-- Database -->
