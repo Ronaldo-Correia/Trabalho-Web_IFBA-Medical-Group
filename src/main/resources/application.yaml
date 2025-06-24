@@ -35,7 +35,7 @@ spring:
             non_contextual_creation: true
 
 server:
-  port: ${PORT:8080}
+  port: 8081
 
 logging:
   level:
@@ -45,5 +45,5 @@ logging:
 
 gg:
   jte:
-    usePrecompiledTemplates: true
-    templateLocation: classpath:jte
+    development-mode: true
+    templateLocation: src/main/resources/jte

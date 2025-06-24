@@ -56,7 +56,7 @@
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte-spring-boot-starter-3</artifactId>
-            <version>3.1.16</version>
+            <version>${jte.version}</version>
         </dependency>
 
         <!-- Database -->
@@ -190,36 +190,4 @@
 </plugin>
         </plugins>
     </build>
-    <profiles>
-    <profile>
-        <id>jte-precompile</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-        </activation>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>gg.jte</groupId>
-                    <artifactId>jte-maven-plugin</artifactId>
-                    <version>${jte.version}</version>
-                    <executions>
-                        <execution>
-                            <id>precompile</id>
-                            <goals>
-                                <goal>precompile</goal>
-                            </goals>
-                            <configuration>
-                                <sourceDirectory>${project.basedir}/src/main/resources/jte</sourceDirectory>
-                                <targetDirectory>${project.build.directory}/classes</targetDirectory>
-                                <contentType>Html</contentType>
-                                <packageName>com.system.clinic.views</packageName>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-</profiles>
-
 </project>
