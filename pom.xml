@@ -56,7 +56,7 @@
         <dependency>
             <groupId>gg.jte</groupId>
             <artifactId>jte-spring-boot-starter-3</artifactId>
-            <version>${jte.version}</version>
+            <version>3.1.16</version>
         </dependency>
 
         <!-- Database -->
@@ -170,7 +170,7 @@
                 <sourceDirectory>${project.basedir}/src/main/resources/jte</sourceDirectory>
                 <targetDirectory>${project.build.directory}/generated-sources/jte</targetDirectory>
                 <contentType>Html</contentType>
-                <packageName>com.system.clinic.views</packageName>
+               <!--<packageName>com.system.clinic.views</packageName>-->
             </configuration>
         </execution>
         <execution>
