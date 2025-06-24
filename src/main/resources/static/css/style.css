@@ -232,17 +232,19 @@ body {
 }
 
 /* Tipografia */
-h1,
-h2,
-h3,
-h4 {
+h1 {
   color: var(--white);
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 h2 {
   font-size: 2rem;
   text-align: center;
+}
+h3,h4{
+  color: var(--primary) ;
 }
 textarea {
   resize: vertical;
