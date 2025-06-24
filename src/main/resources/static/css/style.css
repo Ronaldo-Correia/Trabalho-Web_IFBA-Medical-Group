@@ -236,7 +236,7 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--gray-dark);
+  color: var(--white);
   margin-bottom: 1rem;
 }
 

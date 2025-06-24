@@ -16,9 +16,9 @@ spring:
         debug: true
 
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:postgresql://ec2-54-85-169-59.compute-1.amazonaws.com:5432/d2ecfd4emc36r5?sslmode=require}
-    username: ${JDBC_DATABASE_USERNAME:ub446tlqv3veu2}
-    password: ${JDBC_DATABASE_PASSWORD:pbd62f590a866764d8e90d92ea92ec70940d3d3503694a08f52f7f40cd7c1355a}
+    url: jdbc:postgresql://localhost:5432/clinicabd
+    username: postgres
+    password: postgre
     driver-class-name: org.postgresql.Driver
 
   jpa:

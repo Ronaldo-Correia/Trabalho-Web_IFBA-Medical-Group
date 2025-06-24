@@ -30,7 +30,7 @@ public class UsuarioEntity {
     @Column(nullable = false)
     private String nome;
 
-    @Column(unique = true, nullable = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Column(nullable = false)

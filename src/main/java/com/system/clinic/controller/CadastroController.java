@@ -39,23 +39,23 @@ public class CadastroController {
     }
 
     @PostMapping("/cadastro")
-    public ModelAndView cadastro(@Valid UsuarioDTO usuario, BindingResult bindingResult) {
-        var model = new ModelAndView();
-        var errors = ControllerUtils.createValidationErrorResponse(bindingResult);
+public ModelAndView cadastro(@Valid UsuarioDTO usuario, BindingResult bindingResult) {
+    var model = new ModelAndView();
+    var errors = ControllerUtils.createValidationErrorResponse(bindingResult);
 
-        model.setViewName("cadastro");
-        model.addObject("errors", errors);
-        model.addObject("usuario", usuario);
+    model.setViewName("cadastro");
+    model.addObject("errors", errors);
+    model.addObject("usuario", usuario);
 
-        try {
-            usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
-            service.save(usuario);
-            model.setViewName("redirect:/cadastroSucesso");
-            return model;
-        } catch (RecursoDuplicadoException e) {
-            errors.getErrors().add(new ValidationErrorDTO.FieldError("email", e.getMessage()));
-        }
-
+    try {
+        service.save(usuario); // remove passwordEncoder daqui
+        model.setViewName("redirect:/cadastroSucesso");
         return model;
+    } catch (RecursoDuplicadoException e) {
+        errors.getErrors().add(new ValidationErrorDTO.FieldError("email", e.getMessage()));
     }
+
+    return model;
+}
+
 }
