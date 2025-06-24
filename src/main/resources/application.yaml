@@ -43,9 +43,8 @@ logging:
     org.springframework.orm.jpa: DEBUG
     com.yourpackage: DEBUG
 
-
 gg:
   jte:
-    development-mode: false
-    use-precompiled-templates: true
+    development-mode: true
+    use-precompiled-templates: false
     templateLocation: src/main/resources/jte
