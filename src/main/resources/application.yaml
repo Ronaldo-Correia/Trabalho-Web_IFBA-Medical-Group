@@ -43,6 +43,7 @@ logging:
     org.springframework.orm.jpa: DEBUG
     com.yourpackage: DEBUG
 
+
 gg:
   jte:
     development-mode: false
