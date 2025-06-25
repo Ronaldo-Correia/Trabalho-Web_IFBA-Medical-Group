@@ -22,5 +22,6 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 ## 👨‍💻 Como Usar
 
 - No terminal da sua IDE digite seguindo essa ordem:
-- mvn clean install
-- mvn spring-boot:run
+- 1: mvn clean install
+- 2: mvn spring-boot:run
+- acesse: http://localhost:8081/login
