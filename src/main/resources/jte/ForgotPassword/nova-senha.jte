@@ -25,7 +25,7 @@
             
             <div class="espaco-input">
                 <label for="novaSenha">Nova Senha*</label>
-                <input type="password" id="novaSenha" name="novaSenha" placeholder="Mínimo 8 caracteres" required minlength="6">
+                <input type="password" id="novaSenha" name="novaSenha" placeholder="Mínimo 6 caracteres" required minlength="6">
             </div>
 
             <div class="espaco-input">
