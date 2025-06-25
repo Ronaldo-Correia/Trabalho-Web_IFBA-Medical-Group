@@ -92,7 +92,7 @@ public class RedefinicaoSenhaController {
             MimeMessage message = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
-            String resetLink = "http://localhost:8081/redefinir-senha?token=" + token;
+            String resetLink = "https://clinic-web01-c664e6278775.herokuapp.com/redefinir-senha?token=" + token;
 
             helper.setTo(email);
             helper.setSubject("🔐 Redefinição de Senha - Sistema Clínico");
