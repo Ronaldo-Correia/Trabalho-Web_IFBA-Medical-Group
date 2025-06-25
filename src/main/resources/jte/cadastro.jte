@@ -29,7 +29,7 @@
 
             <div class="espaco-input">
                 <label for="senha">Senha*</label>
-                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+                <input type="password" id="senha" name="senha" placeholder="Crie sua senha com no mínimo 6 caracteres" required minlength="6" />
             </div>
 
             <button type="submit">Salvar</button>

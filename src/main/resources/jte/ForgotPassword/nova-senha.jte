@@ -25,12 +25,12 @@
             
             <div class="espaco-input">
                 <label for="novaSenha">Nova Senha*</label>
-                <input type="password" id="novaSenha" name="novaSenha" placeholder="Mínimo 8 caracteres" required minlength="8">
+                <input type="password" id="novaSenha" name="novaSenha" placeholder="Mínimo 8 caracteres" required minlength="6">
             </div>
 
             <div class="espaco-input">
                 <label for="confirmacaoSenha">Confirme a Senha*</label>
-                <input type="password" id="confirmacaoSenha" name="confirmacaoSenha" placeholder="Digite novamente" required minlength="8">
+                <input type="password" id="confirmacaoSenha" name="confirmacaoSenha" placeholder="Digite novamente" required minlength="6">
             </div>
 
             <button type="submit">Salvar Nova Senha</button>

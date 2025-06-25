@@ -25,7 +25,7 @@
             
             <div class="espaco-input">
                 <label for="usuario">Usuário*</label>
-                <input type="text" id="usuario" name="username" placeholder="Digite seu nome de usuário" required /> 
+                <input type="text" id="usuario" name="username" placeholder="Digite seu e-mail de usuário" required /> 
             </div>
         
             <div class="espaco-input">
