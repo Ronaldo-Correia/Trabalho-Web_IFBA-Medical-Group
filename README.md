@@ -18,3 +18,5 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 * Agendamento e listagem de consultas
 * Validações de dados nos formulários
 * Exibição de dados organizados em uma interface simples
+
+👨‍💻 Como Usar
