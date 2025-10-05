@@ -2,6 +2,7 @@
 
 Este projeto é um sistema web para gerenciamento de uma clínica médica, desenvolvido como parte de um trabalho da disciplina de Desenvolvimento Web.
 O sistema permite o cadastro de pacientes e profissionais da saúde, além de agendamento e visualização de consultas.
+
 ---
 ## 🔧 Tecnologias Utilizadas
 
