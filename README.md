@@ -19,9 +19,19 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 * Validações de dados nos formulários
 * Exibição de dados organizados em uma interface simples
 
-## 👨‍💻 Como Usar
+## 👨‍💻 Como executar o sistema localmente
 
-- No terminal da sua IDE digite seguindo essa ordem:
-- 1: mvn clean install
-- 2: mvn spring-boot:run
-- acesse: http://localhost:8081/login
+- 1: Substitua o datasource no arquivo `application.yaml` por:
+```
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+```
+- 2: No terminal da sua IDE execute esse comando:
+```
+mvn clean install spring-boot:run
+```
+- 3: Acesse o site local
+[IFBA Medical Group](http://localhost:8081/login)
