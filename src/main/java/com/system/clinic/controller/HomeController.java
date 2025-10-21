@@ -1,24 +1,20 @@
 package com.system.clinic.controller;
 
-import static com.system.clinic.consts.RequestPathConstants.HOME;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 @Controller
-@RequestMapping(HOME)
 public class HomeController {
 
-    @GetMapping
+    // Home pública
+    @GetMapping("/")
     public String index() {
-        return "index";  
+        return "index"; // página pública
     }
 
-    // Adicione este método para o health check do Railway
-    @GetMapping("/")
-    @ResponseBody  // Retorno direto (não procura template)
+    // Home interna (pós-login)
+    @GetMapping("/home")
     public String home() {
-        return "Clinic API Running";
+        return "home"; // página logada
     }
 }

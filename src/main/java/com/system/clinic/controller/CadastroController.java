@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.system.clinic.dto.UsuarioDTO;
@@ -32,12 +33,6 @@ public class CadastroController {
         model.addObject("usuario", new UsuarioDTO());
         return model;
     }
-
-    @GetMapping("/cadastroSucesso")
-    public String mostrarTelaSucesso() {
-        return "cadastroSucesso";
-    }
-
     @PostMapping("/cadastro")
 public ModelAndView cadastro(@Valid UsuarioDTO usuario, BindingResult bindingResult) {
     var model = new ModelAndView();
@@ -57,5 +52,12 @@ public ModelAndView cadastro(@Valid UsuarioDTO usuario, BindingResult bindingRes
 
     return model;
 }
+@GetMapping("/cadastroSucesso")
+public ModelAndView cadastroSucesso(@RequestParam(defaultValue = "false") boolean logado) {
+    var model = new ModelAndView("cadastroSucesso");
+    model.addObject("logado", logado);
+    return model;
+}
+
 
 }

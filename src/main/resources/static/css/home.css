@@ -1,0 +1,80 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f9ff;
+    margin: 0;
+    padding: 0;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.home-content {
+    max-width: 500px;
+}
+
+.home-content h1 {
+    font-size: 2.5rem;
+    color: #0b3d91;
+}
+
+.home-content h1 span {
+    color: #00bfa5;
+}
+
+.home-content p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.home-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-login, .btn-cadastro {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-login {
+    background-color: #00bfa5;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #009e8d;
+}
+
+.btn-cadastro {
+    border: 2px solid #00bfa5;
+    color: #00bfa5;
+}
+
+.btn-cadastro:hover {
+    background-color: #00bfa5;
+    color: white;
+}
+
+.home-image img {
+    width: 400px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}

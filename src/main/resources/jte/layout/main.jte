@@ -14,6 +14,7 @@
   <source src="img/heartpulse.mp4" type="video/mp4">
   Seu navegador não suporta vídeos HTML5.
 </video>
+
     @template.layout.header()
     <div class="wrapper">
         <main class="main container">
@@ -21,12 +22,12 @@
         </main>
     </div>
     @template.layout.footer()
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menu-toggle');
     const headerNav = document.querySelector('.header-nav');
     
-    // Criar overlay dinamicamente
     const overlay = document.createElement('div');
     overlay.className = 'mobile-overlay';
     document.body.appendChild(overlay);
@@ -35,7 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
         headerNav.classList.toggle('active');
         overlay.classList.toggle('active');
         
-        // Alternar ícone do menu (☰/✕)
         if (headerNav.classList.contains('active')) {
             menuToggle.innerHTML = '&times;';
         } else {
@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Fechar menu ao clicar no overlay ou em um link
     overlay.addEventListener('click', closeMenu);
     
     document.querySelectorAll('.header-nav a').forEach(link => {
@@ -56,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.innerHTML = '&#9776;';
     }
     
-    // Fechar menu ao redimensionar para desktop
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             closeMenu();

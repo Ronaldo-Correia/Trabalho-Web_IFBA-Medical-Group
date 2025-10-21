@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-section">
-            <h2>IFBA Medical Group</h2>
+            <h2 class="header-title">IFBA Medical Group</h2>
             <p>Sua saúde em primeiro lugar</p>
             <p>&copy; 2025 IFBA Medical Group. Todos os direitos reservados.</p>
         </div>

@@ -59,7 +59,7 @@
                     <p class="error-description">A página que você está procurando não foi encontrada. Verifique o endereço ou volte à página inicial.</p>
                 @endif
 
-                <a href="/home" class="error-link">Voltar à página inicial</a>
+                <a href="/" class="error-link">Voltar à página inicial</a>
             </div>
         </main>
 

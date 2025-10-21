@@ -12,7 +12,7 @@
                 <li><a href="/listarAgendamentos">Agendamentos</a></li>
                 <li><a href="/listarPaciente">Pacientes</a></li>
                 <li><a href="/listarProfissional">Profissionais</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a href="/">Logout</a></li>
             </ul>
         </nav>
     </div>

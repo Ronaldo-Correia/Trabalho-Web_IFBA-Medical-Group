@@ -13,7 +13,9 @@
   --transition: all 0.3s ease;
 }
 /* [Manter todo o CSS anterior até a seção de botões] */
-
+.hero-landing{
+  background-color: white;
+}
 /* Botões Específicos para Funcionalidades */
 .btn-agendar {
   background-color: #4caf50;
@@ -126,7 +128,9 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   text-decoration: none; /* Garante que não apareça sublinhado no hover */
 }
-
+.header-title{
+  color:white;
+}
 /* Formulários de Busca */
 .form-busca-profissional,
 .form-busca-paciente {
@@ -219,6 +223,7 @@ body {
 }
 
 .wrapper {
+  background-color:white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -233,13 +238,14 @@ body {
 
 /* Tipografia */
 h1 {
-  color: var(--white);
+  color: var(--primary-dark);
   margin-bottom: 1rem;
   display: flex;
   justify-content: center;
 }
 
 h2 {
+  color: var(--primary);
   font-size: 2rem;
   text-align: center;
 }
@@ -429,7 +435,71 @@ textarea {
   font-size: 1.1rem;
   margin-top: 10px;
 }
+.home-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subtitle{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #222d64;
+}
+.btn-home{
+    display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 1rem;
+    align-self: center;
+    background-color: #325CC8;
+    font-size: 13px;
+      transition: var(--transition);
+    color: white;
+  text-decoration: none;
+    cursor: pointer;
+  transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.btn-home:hover {
+    background-color: #222d64;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+.btn-register{
+     display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 15px;
+  font-weight: 900;
+  font-size: 2rem;
+    align-self: center;
+    background-color: #2f9a47ff;
+    font-size: 13px;
+      transition: var(--transition);
+    color: white;
+  text-decoration: none;
+    cursor: pointer;
+  transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.btn-register:hover {
+   background-color: #227335ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
 
+.hero-visual img{
+  display: block;
+  margin: 0 auto;
+  justify-content: center;
+  width:50%;
+  height:auto;
+}
 label {
   display: block;
   margin-bottom: 0.5rem;
@@ -916,6 +986,7 @@ input[readonly] {
   margin-right: 10px;
   color: #28a745;
 }
+
 /* Responsividade */
 @media (max-width: 1024px) {
   .agendamento-container {
@@ -1009,9 +1080,10 @@ input[readonly] {
 h2 {
   grid-column: span 2;
   text-align: center;
-  color: white;
+  color: #222d64;
   margin-bottom: 20px;
   font-size: 2rem;
+  padding-top: 10px;
 }
 
 /* Grupos de Formulário */
@@ -1355,7 +1427,5 @@ textarea {
     padding: 1.5rem;
   }
 
-  h2 {
-    font-size: 1.5rem;
-  }
+
 }
