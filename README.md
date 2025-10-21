@@ -35,7 +35,7 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 mvn clean install spring-boot:run
 ```
 - 3: Acesse o site local
-[IFBA Medical Group](http://localhost:8081/login)
+[IFBA Medical Group](http://localhost:8081/)
 ---
 ## 🏗 Arquitetura do Sistema
 O sistema Trabalho-Web_IFBA-Medical-Group foi desenvolvido em Java (Spring Boot) seguindo uma arquitetura em camadas, que separa responsabilidades de forma clara:
