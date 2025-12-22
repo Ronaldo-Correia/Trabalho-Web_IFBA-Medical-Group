@@ -16,10 +16,10 @@ spring:
         debug: true
 
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:postgresql://ec2-54-85-169-59.compute-1.amazonaws.com:5432/d2ecfd4emc36r5?sslmode=require}
-    username: ${JDBC_DATABASE_USERNAME:ub446tlqv3veu2}
-    password: ${JDBC_DATABASE_PASSWORD:pbd62f590a866764d8e90d92ea92ec70940d3d3503694a08f52f7f40cd7c1355a}
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
 
   jpa:
     hibernate:
@@ -35,7 +35,7 @@ spring:
             non_contextual_creation: true
 
 server:
-  port: 8081
+  port: 8082
 
 logging:
   level:

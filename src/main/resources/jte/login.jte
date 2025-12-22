@@ -1,3 +1,4 @@
+@param Boolean error
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,18 +12,21 @@
 
 </head>
 <body>
-
-
     <div class="login-container">
 
         <form action="/login" method="post" class="form-section">
-
 
             <div class="titulo"> 
                 <h1>LOGIN</h1>
                 <div class="barra-horizontal"></div>
             </div>   
-            
+            @if(error)
+                <div class="alert-error">
+                    Usuário ou senha inválidos. Tente novamente.
+                </div>
+            @endif
+
+
             <div class="espaco-input">
                 <label for="usuario">Usuário*</label>
                 <input type="text" id="usuario" name="username" placeholder="Digite seu e-mail de usuário" required /> 

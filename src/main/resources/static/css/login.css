@@ -51,7 +51,16 @@ h1 {
     width: 210px;
     margin: 10px auto;
 }
-
+.alert-error  {
+  background-color: #f8d7da;
+  color: #d32f2f;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
 .espaco-input {
     display: flex;
     flex-direction: column;
