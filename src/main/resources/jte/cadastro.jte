@@ -1,3 +1,8 @@
+@import com.system.clinic.dto.UsuarioDTO
+@param UsuarioDTO usuario
+@param String erro
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +16,8 @@
 
 
     <div class="CadastroContainer">
-        <form action="/cadastro" method="post" class="Formulario">
-            <div class="TituloCad">
+<form action="/cadastro" method="post" class="Formulario">
+    <div class="TituloCad">
                 <h1>Cadastro</h1>
                 <div class="barra-horizontal"></div>
             </div>
@@ -25,7 +30,12 @@
             <div class="espaco-input">
                 <label for="email">E-mail*</label>
                 <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+
+                @if(erro != null)
+                    <div class="mensagem-erro">${erro}</div>
+                @endif
             </div>
+
 
             <div class="espaco-input">
                 <label for="senha">Senha*</label>

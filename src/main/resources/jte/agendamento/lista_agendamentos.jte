@@ -2,6 +2,7 @@
 @import java.util.List
 
 @param List<AgendamentoDTO> agendamentos
+@param String nome
 
 @template.layout.main(content = @`
     <h2 class="title-page">Consultas Cadastradas</h2>
@@ -57,4 +58,4 @@
         </tbody>
     </table>
 </div>
-`)
+`, nome = nome)

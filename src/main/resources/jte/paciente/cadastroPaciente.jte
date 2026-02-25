@@ -1,3 +1,4 @@
+@param String nome
 @template.layout.main(content = @`
 
     <main>
@@ -110,6 +111,6 @@
     }
 });
 </script>
-`)
+`, nome = nome)
    
  

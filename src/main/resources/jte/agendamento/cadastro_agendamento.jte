@@ -2,6 +2,7 @@
 @import java.time.format.DateTimeFormatter
 
 @param AgendamentoDTO agendamento
+@param String nome
 
 @template.layout.main(content = @`
 <main>
@@ -175,4 +176,4 @@ function buscarMedico() {
         });
 }
 </script>
-`)
+`, nome = nome)

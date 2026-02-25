@@ -1,3 +1,4 @@
+@param String nome
 @template.layout.main(content = @`
     
     <main>
@@ -107,4 +108,4 @@ function mascaraCPF(input) {
     }
 });
 </script>
-`)
+`, nome = nome)

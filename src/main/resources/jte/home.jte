@@ -1,3 +1,4 @@
+@param String nome
 @template.layout.main(content = @`
 
     <div class="home">
@@ -43,4 +44,4 @@
 </section>
 
 
-`)
+`, nome = nome)

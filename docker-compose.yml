@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  clinic-app:
+    build: .
+    ports:
+      - "8082:8082"
+    environment:
+      # override datasource for production if desired
+      # SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/clinic
+      # SPRING_DATASOURCE_USERNAME: postgres
+      # SPRING_DATASOURCE_PASSWORD: example
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: clinic
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

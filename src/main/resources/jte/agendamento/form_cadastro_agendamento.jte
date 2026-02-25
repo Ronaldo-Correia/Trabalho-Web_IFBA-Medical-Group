@@ -7,6 +7,7 @@
 @param boolean edicao = false
 @param boolean visualizacao = false
 @param boolean logado
+@param String nome
 
 @template.layout.main(content = @`
     <main class="agendamento-edit-container">
@@ -79,4 +80,4 @@
             </form>
         </div>
     </main>
-`)
+`, nome = nome)

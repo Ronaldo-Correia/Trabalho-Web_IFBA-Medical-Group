@@ -82,6 +82,14 @@ h1 {
 .espaco-input label {
     font-weight: bold;
 }
+.mensagem-erro {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
 
 input {
     padding: 10px;

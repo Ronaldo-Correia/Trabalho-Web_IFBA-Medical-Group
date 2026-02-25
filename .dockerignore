@@ -1,0 +1,11 @@
+# ignore build output and IDE files
+target
+.idea
+*.iml
+*.log
+.settings
+.mvn
+.git
+.gitignore
+.DS_Store
+.yaml

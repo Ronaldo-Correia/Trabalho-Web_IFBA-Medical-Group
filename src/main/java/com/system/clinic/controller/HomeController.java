@@ -2,6 +2,10 @@ package com.system.clinic.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.security.core.Authentication;
+
+import com.system.clinic.service.impl.CustomUserDetails;
 
 @Controller
 public class HomeController {
@@ -14,7 +18,10 @@ public class HomeController {
 
     // Home interna (pós-login)
     @GetMapping("/home")
-    public String home() {
-        return "home"; // página logada
-    }
+public String home() {
+    return "home";
+}
+
+
+
 }

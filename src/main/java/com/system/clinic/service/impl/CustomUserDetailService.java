@@ -33,7 +33,13 @@ public class CustomUserDetailService implements UserDetailsService {
                 .toList();
 
         log.info("Papeis: {}", authorities);
-        return new User(usuario.getEmail(), usuario.getSenha(), authorities);
+        return new CustomUserDetails(
+        usuario.getNome(),
+        usuario.getEmail(),
+        usuario.getSenha(),
+        authorities
+);
+
 
         // return new User(usuario.getEmail(), usuario.getSenha(), List.of(new
         // SimpleGrantedAuthority("USER")));

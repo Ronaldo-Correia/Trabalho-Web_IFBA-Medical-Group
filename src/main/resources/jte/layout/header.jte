@@ -1,3 +1,5 @@
+@param String nome
+
 <header class="header">
     <div class="container">
         <div class="header-logo">
@@ -13,6 +15,11 @@
                 <li><a href="/listarPaciente">Pacientes</a></li>
                 <li><a href="/listarProfissional">Profissionais</a></li>
                 <li><a href="/">Logout</a></li>
+            @if(nome != null && !nome.isEmpty())
+                <li class="usuario-logado">
+                    👤 ${nome}
+                </li>
+            @endif
             </ul>
         </nav>
     </div>

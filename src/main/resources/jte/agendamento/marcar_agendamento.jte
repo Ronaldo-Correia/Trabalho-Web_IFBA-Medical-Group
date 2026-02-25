@@ -1,3 +1,4 @@
+@param String nome
 @template.layout.main(content = @`
 <main>
 <div class="agendamento-container">
@@ -54,4 +55,4 @@
         }
     </script>
 </div>
-`)
+`, nome = nome)

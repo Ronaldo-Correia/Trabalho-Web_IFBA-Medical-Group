@@ -235,6 +235,25 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+.usuario-logado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #fff;
+
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
 
 /* Tipografia */
 h1 {

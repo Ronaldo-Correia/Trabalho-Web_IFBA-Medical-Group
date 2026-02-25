@@ -3,6 +3,7 @@
 
 @param List<PacienteDTO> pacientes
 @param boolean erroCpf = false
+@param String nome
 
 @template.layout.main(content = @`
     <h2 class="title-page">Pacientes Cadastrados</h2>
@@ -65,4 +66,4 @@
         </tbody>
     </table>
 </div>
-`)
+`, nome = nome)

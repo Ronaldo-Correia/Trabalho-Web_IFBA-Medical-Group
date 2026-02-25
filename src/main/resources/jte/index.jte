@@ -1,3 +1,4 @@
+@param String nome
 @template.layout.main(content = @`
  <div class="home">
       <h1>Bem-vindo ao IFBA Medical Group</h1>
@@ -79,4 +80,4 @@
 
         </div>
     </section>
-`)
+`, nome = nome)

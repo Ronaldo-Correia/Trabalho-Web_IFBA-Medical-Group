@@ -1,4 +1,5 @@
 @param gg.jte.Content content
+@param String nome
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +16,7 @@
   Seu navegador não suporta vídeos HTML5.
 </video>
 
-    @template.layout.header()
+    @template.layout.header(nome)
     <div class="wrapper">
         <main class="main container">
             ${content}
