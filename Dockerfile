@@ -1,7 +1,7 @@
 # multi-stage build for the IFBA Medical Group clinic application
 
 # --- build stage -----------------------------------------------------------
-FROM maven:3.9.3-eclipse-temurin-17 AS build
+FROM docker.io/library/maven:3.9.3-openjdk-21 AS build
 WORKDIR /workspace
 
 # cache dependencies by copying only the pom first
@@ -13,7 +13,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests -B
 
 # --- runtime stage ---------------------------------------------------------
-FROM eclipse-temurin:17-jre
+FROM docker.io/library/openjdk:21-jre
 WORKDIR /app
 
 # copy jar from the build stage
