@@ -60,8 +60,6 @@ O projeto inclui um `Dockerfile` e um `docker-compose.yml` para facilitar a exec
 docker build -t ifba-medical-clinic:latest .
 ```
 
-Nota: em algumas distribuições o comando `docker` é emulado por `podman` e pode recusar nomes curtos de imagem se não houver registries configurados (erro: "short-name ... did not resolve to an alias"). Duas opções:
-
 - usar o nome da imagem com prefixo local, por exemplo: `localhost/ifba-medical-clinic:latest` ao buildar e rodar;
 - ou rodar com `podman` explicitamente: `podman run --rm -p 8082:8082 -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" localhost/ifba-medical-clinic:latest`.
 
@@ -92,8 +90,6 @@ podman run --rm -p 8082:8082 \
 
 - Se ocorrer `manifest unknown` para uma imagem base, a tag que você tentou pode não existir no registro. Use uma imagem base oficial conhecida (ex.: `openjdk:21-jre`) ou ajuste o `Dockerfile` para uma tag disponível.
 
-- Se houver falhas de rede/DNS ao acessar o Docker Hub (ex.: Timeout ou "connect: network is unreachable"), confirme conectividade e DNS:
-
 ```bash
 # teste DNS/HTTP ao Docker Hub
 curl -v https://registry-1.docker.io/v2/ || true
@@ -118,30 +114,13 @@ unqualified-search-registries = ["docker.io"]
 
 Edite com privilégios de root e reinicie o serviço do Podman se necessário. Se você não puder modificar o sistema, use sempre o prefixo `localhost/` ou `docker.io/` nas tags.
 
-### 2. Executando com docker run
+### 2. Executando com docker 
 
 ```bash
 docker run --rm -p 8082:8082 \
   -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" \
   ifba-medical-clinic:latest
 ```
-
-A aplicação estará disponível em `http://localhost:8082/`.
-
-### 3. Executando com docker-compose (com PostgreSQL)
-
-```bash
-docker-compose up --build
-```
-
-O serviço `clinic-app` será iniciado na porta 8082 e o banco PostgreSQL será provisionado.
-As variáveis de conexão podem ser configuradas no `docker-compose.yml` ou via `environment`.
-
-O arquivo `.dockerignore` já elimina artefatos de build e IDE.
-
-> 🔧 **Dica:** se preferir usar o H2 em memória, comente ou remova as variáveis `SPRING_DATASOURCE_*` no compose.
-
----
 
 ## 🚀 Como usar (navegação)
 
