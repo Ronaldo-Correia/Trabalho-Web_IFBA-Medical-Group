@@ -8,7 +8,6 @@ O sistema permite o cadastro de pacientes e profissionais da saúde, além de ag
 ## 🔧 Tecnologias Utilizadas
 
 - Java 17/21
-- Java 21 (upgrade realizado)
 - Spring Boot
 - JTE (Java Template Engine)
 - HTML/CSS
