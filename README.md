@@ -62,61 +62,8 @@ Não é necessário instalar Java ou PostgreSQL na máquina. Só precisa ter Doc
 
 ```bash
 # a partir da raiz do projeto
-cd raiz-do-projeto```
-
-- usar o nome da imagem com prefixo local, por exemplo: `localhost/ifba-medical-clinic:latest` ao buildar e rodar;
-- ou rodar com `podman` explicitamente: `podman run --rm -p 8082:8082 -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" localhost/ifba-medical-clinic:latest`.
-
-Exemplo rápido para construir e rodar com Podman:
-
-```bash
-podman build -t localhost/ifba-medical-clinic:latest .
-podman run --rm -p 8082:8082 \
-  -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" \
-  localhost/ifba-medical-clinic:latest
+cd raiz-do-projeto
 ```
-
-Se o build falhar com erros como "short-name ... did not resolve to an alias", "manifest unknown" ou erros de DNS ao puxar imagens base (ex.: `registry-1.docker.io`), veja as opções abaixo.
-
-Opções quando o build falhar
-
-- Usar a imagem runtime já empacotada (mais simples, evita puxar a imagem Maven): criei um `Dockerfile.runtime` que usa o JAR em `target/`:
-
-```bash
-# construir (garanta que o JAR exista: mvn -DskipTests clean package)
-podman build -f Dockerfile.runtime -t localhost/ifba-medical-clinic:latest .
-podman run --rm -p 8082:8082 \
-  -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" \
-  localhost/ifba-medical-clinic:latest
-```
-
-- Se o Podman reclamar de nomes curtos, prefira usar prefixo `localhost/` ou `docker.io/` ao taggear a imagem (ex.: `localhost/ifba-medical-clinic:latest`).
-
-- Se ocorrer `manifest unknown` para uma imagem base, a tag que você tentou pode não existir no registro. Use uma imagem base oficial conhecida (ex.: `openjdk:21-jre`) ou ajuste o `Dockerfile` para uma tag disponível.
-
-```bash
-# teste DNS/HTTP ao Docker Hub
-curl -v https://registry-1.docker.io/v2/ || true
-ping -c 3 registry-1.docker.io || true
-```
-
-- Como alternativa rápida (sem contêiner), rode o JAR localmente:
-
-```bash
-# a partir da raiz do projeto (assumindo que target/clinic-*.jar existe)
-export SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb"
-java -jar target/clinic-0.0.1-SNAPSHOT.jar
-```
-
-Configurar resolução de nomes curtos no Podman (opcional)
-
-- Para permitir que Podman aceite short-names (por exemplo `maven:...`), adicione `docker.io` em `unqualified-search-registries` em `/etc/containers/registries.conf`:
-
-```ini
-unqualified-search-registries = ["docker.io"]
-```
-
-Edite com privilégios de root e reinicie o serviço do Podman se necessário. Se você não puder modificar o sistema, use sempre o prefixo `localhost/` ou `docker.io/` nas tags.
 
 ### 2. Executando com docker 
 
