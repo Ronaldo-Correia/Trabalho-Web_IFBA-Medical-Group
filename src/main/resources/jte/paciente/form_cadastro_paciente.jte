@@ -11,17 +11,13 @@
 
 @template.layout.main(content = @`
     <main class="agendamento-edit-container">
-         @if (edicao)
-            <div class="success-box">
-                <i class="fas fa-check-circle"></i> Paciente editado com sucesso!
-            </div>
-        @endif
+
         <div class="form-container">
             @if(!visualizacao)
                 <h2 class="title-page">${edicao ? "Edição" : "Cadastro"} de Paciente</h2>
             @endif
 
-            <form id="formpaciente" method="post" action="/paciente/editar/${paciente.getId()}">
+            <form method="post" action="/paciente/editar/${paciente.getId()}">
                 <input type="hidden" id="id" name="id" value="${paciente.getId()}">
 
                 <label for="nome">Nome:</label>

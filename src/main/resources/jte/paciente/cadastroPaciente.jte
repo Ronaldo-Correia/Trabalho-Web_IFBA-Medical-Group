@@ -20,8 +20,11 @@
 
         <div class="form-group">
             <label class="details">Nascimento:</label>
-            <input type="date" name="dataNascimento" required>
-        </div>
+            <input type="date"
+       id="dataNascimento"
+       name="dataNascimento"
+       required>
+    </div>
 
         <div class="form-group">
             <label class="details">Sexo:</label>
@@ -79,6 +82,12 @@
         </div>
     </main>
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const dataInput = document.getElementById('dataNascimento');
+    const hoje = new Date().toISOString().split('T')[0];
+    dataInput.setAttribute('max', hoje);
+});
+
        document.querySelector('.search-cep').addEventListener('click', async function () {
     const cepInput = document.querySelector('input[name="cep"]');
     let cep = cepInput.value.replace(/\D/g, ''); 
@@ -110,6 +119,7 @@
         alert('Não foi possível buscar o CEP.');
     }
 });
+
 </script>
 `, nome = nome)
    

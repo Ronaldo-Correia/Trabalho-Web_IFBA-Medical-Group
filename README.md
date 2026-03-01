@@ -50,29 +50,25 @@ mvn clean install spring-boot:run
 
 ## 🐳 Executando com Docker
 
-O projeto inclui um `Dockerfile` e um `docker-compose.yml` para facilitar a execução em outros computadores.
+O projeto já possui:
 
-### 1. Construindo a imagem
+Dockerfile (build multi-stage com Maven)
+
+docker-compose.yml (app + PostgreSQL)
+
+Não é necessário instalar Java ou PostgreSQL na máquina. Só precisa ter Docker Desktop instalado.
+
+### 1. Subindo a aplicação
 
 ```bash
 # a partir da raiz do projeto
-docker build -t ifba-medical-clinic:latest .
-```
+cd raiz-do-projeto```
 
 ### 2. Executando com docker run
 
 ```bash
-docker run --rm -p 8082:8082 \
-  -e SPRING_DATASOURCE_URL="jdbc:h2:mem:testdb" \
-  ifba-medical-clinic:latest
-```
+docker compose up --build
 
-A aplicação estará disponível em `http://localhost:8082/`.
-
-### 3. Executando com docker-compose (com PostgreSQL)
-
-```bash
-docker-compose up --build
 ```
 
 O serviço `clinic-app` será iniciado na porta 8082 e o banco PostgreSQL será provisionado.

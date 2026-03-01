@@ -12,11 +12,6 @@
 @template.layout.main(content = @`
     <main class="agendamento-edit-container">
 
-      @if (edicao)
-            <div class="success-box">
-                <i class="fas fa-check-circle"></i> Profissional editado com sucesso!
-            </div>
-        @endif
     <div class="form-container">
 
         @if (!visualizacao)

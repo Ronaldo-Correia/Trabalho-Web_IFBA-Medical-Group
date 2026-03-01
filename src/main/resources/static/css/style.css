@@ -273,7 +273,7 @@ h4 {
   color: var(--primary);
 }
 textarea {
-  resize: vertical;
+  resize: none;
   min-height: 100px;
   max-height: 200px;
   width: 100%;
@@ -536,6 +536,7 @@ textarea {
   border-radius: 6px;
   font-size: 1rem;
   transition: var(--transition);
+  resize: none;
 }
 
 input:focus,
@@ -807,7 +808,7 @@ textarea:focus {
 }
 
 .form-group textarea {
-  resize: vertical;
+  resize: none;
   min-height: 100px;
 }
 
@@ -936,10 +937,6 @@ input[readonly] {
   font-size: 1rem;
 }
 
-.form-group textarea {
-  min-height: 100px;
-  resize: vertical;
-}
 
 /* Mensagens de erro */
 .error-message {
@@ -1215,7 +1212,7 @@ h2 {
 /* Área de Texto Grande */
 textarea {
   min-height: 120px;
-  resize: vertical;
+  resize: none;  
 }
 .tabela-wrapper {
   width: 100%;

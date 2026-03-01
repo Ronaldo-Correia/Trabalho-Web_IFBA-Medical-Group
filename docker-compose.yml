@@ -1,4 +1,3 @@
-version: "3.8"
 
 services:
   clinic-app:
@@ -6,10 +5,12 @@ services:
     ports:
       - "8082:8082"
     environment:
-      # override datasource for production if desired
-      # SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/clinic
-      # SPRING_DATASOURCE_USERNAME: postgres
-      # SPRING_DATASOURCE_PASSWORD: example
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/clinic
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=example
+      - SPRING_DATASOURCE_DRIVER=org.postgresql.Driver
+      - SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - db
 
@@ -17,9 +18,9 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_DB: clinic
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: example
+      - POSTGRES_DB=clinic
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=example
     volumes:
       - db-data:/var/lib/postgresql/data
 

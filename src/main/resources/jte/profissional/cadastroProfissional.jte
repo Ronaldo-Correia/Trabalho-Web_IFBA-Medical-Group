@@ -18,7 +18,10 @@
                     </div>
                     <div class="form-group">
                         <label for="data-nasc">Data de Nascimento:</label>
-                        <input type="date" id="dataNascimento" name="dataNascimento" required>
+                        <input type="date"
+                    id="dataNascimento"
+                    name="dataNascimento"
+                    required>
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail:</label>
@@ -71,6 +74,12 @@
         </div>
     </main>  
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const dataInput = document.getElementById('dataNascimento');
+    const hoje = new Date().toISOString().split('T')[0];
+    dataInput.setAttribute('max', hoje);
+});
+
 function mascaraCPF(input) {
     let value = input.value.replace(/\D/g, '');
     if (value.length > 11) value = value.slice(0, 11);

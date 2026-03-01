@@ -43,8 +43,10 @@ public class ProfissionalController {
     public String salvarProfissional(@Valid @ModelAttribute ProfissionalDTO profissionalDTO, BindingResult result,
             Model model) {
         if (result.hasErrors()) {
-            return "profissional/cadastroProfissional";
-        }
+    result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
+    return "profissional/form_cadastro_profissional";
+}
+
 
         profissionalService.save(profissionalDTO);
         return "redirect:/listarProfissional";

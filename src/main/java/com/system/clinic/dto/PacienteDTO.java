@@ -7,8 +7,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class PacienteDTO {
@@ -17,16 +19,24 @@ public class PacienteDTO {
     @NotBlank(message = "Nome é obrigatório")
     private String nome;
 
-    @Past(message = "Data de nascimento deve ser no passado")
+    @NotNull(message = "Data de nascimento é obrigatória")
+    @PastOrPresent(message = "Data deve ser hoje ou no passado")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
+
 
     private String dataNascimentoFormatada; // <--- Adicionado!
 
     @NotBlank(message = "Sexo é obrigatório")
     private String sexo;
 
-    @Pattern(regexp = "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}", message = "Formato de CPF inválido")
+    @NotBlank(message = "CPF é obrigatório")
+    @Pattern(
+        regexp = "\\d{11}|\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}",
+        message = "CPF inválido"
+    )
     private String cpf;
+
 
     @NotBlank(message = "E-mail é obrigatório")
     @Email(message = "E-mail inválido")
