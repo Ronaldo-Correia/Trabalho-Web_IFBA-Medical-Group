@@ -21,4 +21,5 @@ public class UsuarioDTO {
     @NotNull(message = "Não pode ser vazio")
     private String nome;
 
+    private String role;
 }

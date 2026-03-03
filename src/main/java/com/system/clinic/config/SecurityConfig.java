@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import com.system.clinic.repository.PapelRepository;
-import com.system.clinic.service.impl.CustomUserDetailService;
+import com.system.clinic.config.CustomUserDetails;
 
 //import ifba.saj.demo.petshop.domain.entity.PapelEntity;
 //import ifba.saj.demo.petshop.repository.PapelRepository;
@@ -24,36 +24,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final CustomUserDetailService userDetailsService;
-    private final PapelRepository papelRepository;
+    // ANTES ESTAVA: private final CustomUserDetails userDetailsService; (ERRO)
+    // MUDE PARA:
+    private final org.springframework.security.core.userdetails.UserDetailsService userDetailsService;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/login",
-                                "/cadastro",
-                                "/cadastroSucesso",
-                                "/",
-                                "/img/**",
-                                "/js/**",
-                                "/css/**",
-                                "/cadastroPaciente",
-                                "/paciente/salvar",
-                                "/listarProfissional",
-                                "/cadastroProfissional/**",
-                                "/sucesso/**",
-                                "/salvarProfissional",
-                                "/editarProfissional/**",
-                                "/error",
-                                "/salvar/**",
-                                "/h2-console/**",
-                                "/esqueci-senha",
-                                "/solicitar-redefinicao",
-                                "/redefinir-senha"
-
+                                "/login", "/", "/img/**", "/js/**", "/css/**", "/error", "/h2-console/**"
                         ).permitAll()
+                        .requestMatchers("/cadastro", "/usuarios/**").hasRole("ADMIN") 
                         .anyRequest().authenticated())
                 .formLogin(login -> login
                         .loginPage("/login")
@@ -63,17 +45,16 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutSuccessUrl("/login?logout")
                         .permitAll())
+                .exceptionHandling(exception -> exception
+                        .accessDeniedPage("/error?forbidden=true")
+                )
                 .csrf(csrf -> csrf.disable())
                 .headers(headers -> headers.frameOptions().disable())
                 .build();
     }
-    
-
-  
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

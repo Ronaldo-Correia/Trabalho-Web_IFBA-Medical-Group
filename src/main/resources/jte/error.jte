@@ -1,5 +1,12 @@
+@param boolean forbidden = false
 @param boolean serverError = false
 
+@if(forbidden)
+    <h2 class="error-title">Acesso Negado!</h2>
+    <p class="error-description" style="text-align: center;">Você não tem permissão para acessar esta área. Apenas administradores podem cadastrar novos usuários.</p>
+@elseif (serverError)
+    <h2 class="error-title">Erro no Sistema!</h2>
+    @endif
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

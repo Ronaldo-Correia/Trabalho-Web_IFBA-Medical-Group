@@ -4,53 +4,54 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.system.clinic.entity.Usuario;
 import com.system.clinic.dto.UsuarioDTO;
-import com.system.clinic.entity.UsuarioEntity;
-import com.system.clinic.exception.RecursoDuplicadoException;
-import com.system.clinic.mapping.UsuarioMapper;
-import com.system.clinic.repository.PapelRepository;
+import com.system.clinic.Enum.Role;
 import com.system.clinic.repository.UsuarioRepository;
 import com.system.clinic.service.UsuarioService;
-
-import java.util.Set;
+import com.system.clinic.exception.RecursoDuplicadoException;
 
 @Service
 @RequiredArgsConstructor
 public class UsuarioServiceImpl implements UsuarioService {
 
-    private final UsuarioMapper mapper;
+    private final PasswordEncoder passwordEncoder; 
     private final UsuarioRepository repository;
-    private final PapelRepository papelRepository;
-    private final PasswordEncoder passwordEncoder; // Adicionado
 
     @Override
-    public void save(UsuarioDTO usuario) {
-        var existeEmail = repository.existsUsuarioEntityByEmail(usuario.getEmail());
-        if (existeEmail) {
-            throw new RecursoDuplicadoException("Email já cadastrado.");
+    public void save(UsuarioDTO dto) {
+        // 1. Verifica se o e-mail já existe (Regra de Negócio)
+        if (repository.existsByEmail(dto.getEmail())) {
+            throw new RecursoDuplicadoException("Este e-mail já está cadastrado no sistema.");
         }
 
-        var entity = mapper.toEntity(usuario);
-        entity.setSenha(passwordEncoder.encode(usuario.getSenha())); // Criptografa a senha
+        // 2. Cria a entidade e mapeia os dados do DTO
+        Usuario usuario = new Usuario();
+        usuario.setNome(dto.getNome());
+        usuario.setEmail(dto.getEmail());
+        
+        // 3. Criptografa a senha antes de salvar
+        usuario.setSenha(passwordEncoder.encode(dto.getSenha()));
+        
+        // 4. Define o papel (Admin ou User) vindo do <select> do formulário
+        // O value do select deve ser "ROLE_USER" ou "ROLE_ADMIN"
+        usuario.setRole(Role.valueOf(dto.getRole()));
 
-        var papelUser = papelRepository.findByPapel("ROLE_USER")
-                .orElseThrow(() -> new RuntimeException("Papel ROLE_USER não encontrado"));
-
-        entity.setPapeis(Set.of(papelUser));
-
-        repository.save(entity);
+        // 5. Persiste no banco
+        repository.save(usuario);
     }
 
     @Override
     public void updatePassword(String email, String newPassword) {
-        UsuarioEntity usuario = repository.findByEmail(email)
+        Usuario usuario = repository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         
         usuario.setSenha(passwordEncoder.encode(newPassword));
         repository.save(usuario);
     }
+
     @Override
-public boolean existeUsuarioPorEmail(String email) {
-    return repository.existsUsuarioEntityByEmail(email);
-}
+    public boolean existeUsuarioPorEmail(String email) {
+        return repository.existsByEmail(email);
+    }
 }
