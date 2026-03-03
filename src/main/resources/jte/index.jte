@@ -10,10 +10,10 @@
 
       <p class="subtitle">Agendamentos, pacientes e profissionais — tudo num lugar só 😊.</p>
 <section class="home-1">
-      <div class="home-2">
-        <a href="/login" class="btn-home">Entrar</a>
-        <a href="/cadastro" class="btn-register">Criar conta</a>
-      </div>
+       <div class="cta-group">
+                    <a href="/login" class="btn btn-primary">Acessar Sistema</a>
+                    <a href="/cadastro" class="btn btn-outline">Criar Conta</a>
+                </div>
 </section>
     </div>
 

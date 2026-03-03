@@ -233,7 +233,6 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
 }
 .usuario-logado {
     display: flex;
@@ -265,7 +264,7 @@ h1 {
 
 h2 {
   color: var(--primary);
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 h3,
@@ -1099,7 +1098,7 @@ h2 {
   text-align: center;
   color: var(--primary);
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding-top: 10px;
 }
 
